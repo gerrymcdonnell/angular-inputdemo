@@ -24,6 +24,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserComponent } from './components/user/user.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 //create routes for app
@@ -32,6 +33,10 @@ const appRoutes:Routes=[
   {path:'users',component:UserMasterComponent},
   {path:'user/:id',component:UserDetailComponent},
   {path:'userlist',component:UserListComponent},
+
+  {path:'adduser',component:AddUserComponent},
+
+  {path:'**',component:PagenotfoundComponent}
 ]
 
 
@@ -43,7 +48,8 @@ const appRoutes:Routes=[
     UserDetailComponent,
     UserListComponent,
     UserComponent,
-    AddUserComponent
+    AddUserComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
