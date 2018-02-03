@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 //import Dataservice
 import { UserDataService } from '../../services/user/user.data.service';
+import {User} from '../../models/user';
 
 //included with flash mesages component
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -28,12 +29,12 @@ export class UserListComponent implements OnInit {
   saveStatus:string="Add User";
 
   constructor(
-      public dataService4:UserDataService,      
+      public userDataService:UserDataService,      
         public fMS:FlashMessagesService
     ) {
 
     //use data service its a n obseravble so we must subscribe to it
-    this.dataService4.getUsers().subscribe(users=>{
+    this.userDataService.getUsers().subscribe(users=>{
         //NOTE: this may cuases problem check cakephp output
         this.users=users;
     })  
@@ -52,7 +53,7 @@ export class UserListComponent implements OnInit {
         
     if(isEdit==true){
         //edit user
-        this.dataService4.updateUser(this.user).subscribe(user=>{
+        this.userDataService.updateUser(this.user).subscribe(user=>{
             
             console.log("calling updateUser()");
 
@@ -78,7 +79,7 @@ export class UserListComponent implements OnInit {
     else{
         //its an add
         console.log("adding user...");
-        this.dataService4.addUser(this.user).subscribe(user=>{
+        this.userDataService.addUser(this.user).subscribe(user=>{
             this.users.unshift(user);
             console.log(user);
 
@@ -90,7 +91,7 @@ export class UserListComponent implements OnInit {
 
 
   onDeleteClick(id){
-    this.dataService4.deleteUser(id).subscribe(res=>{
+    this.userDataService.deleteUser(id).subscribe(res=>{
         console.log(res);
         
         //loop all users and find the one we just deleted
@@ -116,6 +117,21 @@ onEditClick($e,user){
     this.saveStatus="Save Edit";
 
     console.log($e);
+}
+
+
+//for output emmiter
+addUser(user:User){
+    console.log(user);
+
+    this.userDataService.addUser(user).subscribe(user=>{
+        
+        this.users.unshift(user);
+        console.log(user);
+
+        this.fMS.show('Added user', {cssClass:'alert-success', timeout: 4000});
+    })
+
 }
 
 

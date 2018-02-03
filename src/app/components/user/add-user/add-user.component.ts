@@ -10,10 +10,12 @@ import {User} from '../../../models/user';
 export class AddUserComponent implements OnInit {
 
   @Output() userAdded=new EventEmitter<User>();
-  
+
   name:string;
   username:string;
   email:string;
+
+ 
 
   constructor() { }
 
