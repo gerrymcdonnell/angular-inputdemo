@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-
+//for forms in the app
 import {FormsModule} from '@angular/forms';
 
 //navbar
@@ -14,7 +14,7 @@ import{NavbarComponent} from './components/navbar/navbar.component';
 //routing
 import {RouterModule,Routes} from '@angular/router';
 
-//flsh messages module
+//flash messages module
 import {FlashMessagesModule } from 'angular2-flash-messages';
 
 //user detail and master
