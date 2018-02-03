@@ -22,13 +22,12 @@ import{UserDataService} from './services/user/user.data.service'
 import { UserMasterComponent } from './components/user-master/user-master.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { UserComponent } from './components/user/user.component';
 
 
 //create routes for app
 const appRoutes:Routes=[
   {path:'',component:UserListComponent},
-
-
   {path:'users',component:UserMasterComponent},
   {path:'user/:id',component:UserDetailComponent},
   {path:'userlist',component:UserListComponent},
@@ -41,7 +40,8 @@ const appRoutes:Routes=[
     NavbarComponent,
     UserMasterComponent,
     UserDetailComponent,
-    UserListComponent
+    UserListComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
