@@ -1,4 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
+
+//import Dataservice
+import { UserDataService } from '../../services/user/user.data.service';
 import {User} from '../../models/user';
 
 @Component({
@@ -8,10 +11,20 @@ import {User} from '../../models/user';
 })
 export class UserComponent implements OnInit {
 
+  //users array
+  users:User[];
+  
+  
   //takes input from the user-list component and passes it here
   //see user-list-component for details
   @Input('user') user:User;
-  constructor() { }
+
+
+  constructor(public userDataService:UserDataService) 
+  {
+
+
+  }
 
   ngOnInit() {
   }
