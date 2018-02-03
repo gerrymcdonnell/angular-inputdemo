@@ -23,6 +23,7 @@ import { UserMasterComponent } from './components/user-master/user-master.compon
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserComponent } from './components/user/user.component';
+import { AddUserComponent } from './components/user/add-user/add-user.component';
 
 
 //create routes for app
@@ -41,7 +42,8 @@ const appRoutes:Routes=[
     UserMasterComponent,
     UserDetailComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
