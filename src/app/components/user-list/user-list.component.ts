@@ -49,43 +49,8 @@ export class UserListComponent implements OnInit {
   }
 
 
-  
-  
-
-  /*
-  onDeleteClick(id){
-    this.userDataService.deleteUser(id).subscribe(res=>{
-        
-        console.log(res);
-        
-        //loop all users and find the one we just deleted
-        for(let i=0;i<this.users.length;i++){
-            if(this.users[i].id==id){
-                //splice removes elements from an array
-                this.users.splice(i,1);
-            }
-        }
-        this.fMS.show(res.message, {cssClass:'alert-success', timeout: 4000});
-
-    })
-  }// end delete
-  */
-
-//$e is event object
-/*onEditClick($e,user){
-    this.isEdit=true;
-    this.user=user;
-    console.log("edit button clicked - onEditClick()");
-
-    //change text of save/add button to edit
-    this.saveStatus="Save Edit";
-
-    console.log($e);
-}*/
-
-
 //for output emmiter
-addUser(user:User){
+/*addUser(user:User){
     console.log(user);
 
     this.userDataService.addUser(user).subscribe(user=>{
@@ -95,8 +60,7 @@ addUser(user:User){
 
         this.fMS.show('Added user', {cssClass:'alert-success', timeout: 4000});
     })
-
-}
+}*/
 
 
 

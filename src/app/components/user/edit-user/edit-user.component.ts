@@ -44,7 +44,9 @@ export class EditUserComponent implements OnInit {
     console.log('edit user');
 
     this.userDataService.updateUser(this.user).subscribe(user=>{            
-      console.log("calling updateUser()");     
+      console.log("calling updateUser()");  
+      
+      this.router.navigate(['/userlist']);
     })
   }
 
