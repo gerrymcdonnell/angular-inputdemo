@@ -48,50 +48,14 @@ export class UserListComponent implements OnInit {
     //this.fMS.show('Sandbox', {cssClass:'alert-danger', timeout: 4000});
   }
 
+
   
-  onSubmit(isEdit){
-        
-    if(isEdit==true){
-        //edit user
-        this.userDataService.updateUser(this.user).subscribe(user=>{
-            
-            console.log("calling updateUser()");
-
-            //look for the one we edited and add new one back
-            for(let i=0;i<this.users.length;i++){
-                if(this.users[i].id==this.user.id){
-                    //splice removes elements from an array
-                    this.users.splice(i,1);
-                    console.log("doing splice");
-                }
-            }
-            //add it back to the top
-            this.users.unshift(this.user);
-            
-            //change text of save/add button to edit
-            this.saveStatus="Add user";
-            //clear text boxes
-
-            //donest work
-            this.fMS.show('Updated user', {cssClass:'alert-success', timeout: 4000});
-        })
-    }
-    else{
-        //its an add
-        console.log("adding user...");
-        this.userDataService.addUser(this.user).subscribe(user=>{
-            this.users.unshift(user);
-            console.log(user);
-
-            this.fMS.show('Added user', {cssClass:'alert-success', timeout: 4000});
-        })
-    }  
-  }
   
 
-
+  /*
   onDeleteClick(id){
     this.userDataService.deleteUser(id).subscribe(res=>{
+        
         console.log(res);
         
         //loop all users and find the one we just deleted
@@ -101,14 +65,14 @@ export class UserListComponent implements OnInit {
                 this.users.splice(i,1);
             }
         }
-        this.fMS.show('Deleted user', {cssClass:'alert-success', timeout: 4000});
+        this.fMS.show(res.message, {cssClass:'alert-success', timeout: 4000});
 
     })
   }// end delete
-  
+  */
 
 //$e is event object
-onEditClick($e,user){
+/*onEditClick($e,user){
     this.isEdit=true;
     this.user=user;
     console.log("edit button clicked - onEditClick()");
@@ -117,7 +81,7 @@ onEditClick($e,user){
     this.saveStatus="Save Edit";
 
     console.log($e);
-}
+}*/
 
 
 //for output emmiter
